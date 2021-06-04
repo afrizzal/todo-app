@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGODB_ATLAS_USERNAME": "aff-trial",
+    "MONGODB_ATLAS_PASSWORD": "cr7wr10",
+    "MONGODB_ATLAS_DBNAME": "database"
+  }
+}
