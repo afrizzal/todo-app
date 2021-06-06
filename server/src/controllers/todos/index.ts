@@ -47,5 +47,41 @@ export const addTodo = async (req: Request, res: Response): Promise<void> => {
         todo: newTodo,
         todos: allTodos
     });
-}
+};
+export const updateTodo = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
+    const {
+        params: { id },
+        body
+    } = req;
+
+    // If all or one of the required req is undefined
+    if (!body.title || !body.status || !id) {
+        res.status(401).json({
+            status: 401,
+            errorMessage: `ValidationError: _id or required body properties is not defined.`
+        });
+
+        return;
+    }
+
+    const updatedTodo = await TodoModel.findByIdAndUpdate({ _id: id }, body);
+    const allTodos = await TodoModel.find();
+
+    if (!updatedTodo) {
+        res
+            .status(501)
+            .json({ status: 501, errorMessage: 'Edit todo failed. Not implemented' });
+
+        return;
+    }
+
+    res.status(200).json({
+        message: 'Todo successfully edited',
+        updatedTodo,
+        todos: allTodos
+    });
+};
 
