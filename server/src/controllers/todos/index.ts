@@ -48,6 +48,7 @@ export const addTodo = async (req: Request, res: Response): Promise<void> => {
         todos: allTodos
     });
 };
+
 export const updateTodo = async (
     req: Request,
     res: Response
@@ -81,6 +82,42 @@ export const updateTodo = async (
     res.status(200).json({
         message: 'Todo successfully edited',
         updatedTodo,
+        todos: allTodos
+    });
+};
+
+export const removeTodo = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
+    const {
+        params: { id }
+    } = req;
+
+    if (!id) {
+        res.status(401).json({
+            status: 401,
+            errorMessage: `ValidationError: Params _id is not defined.`
+        });
+
+        return;
+    }
+
+    const removedTodo = await TodoModel.findByIdAndRemove(id);
+    const allTodos = await TodoModel.find();
+
+    if (!removedTodo) {
+        res.status(501).json({
+            status: 501,
+            errorMessage: 'Remove todo failed. Not implemented'
+        });
+
+        return;
+    }
+
+    res.status(200).json({
+        message: 'Todo successfully removed',
+        removedTodo,
         todos: allTodos
     });
 };
