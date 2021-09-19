@@ -12,6 +12,7 @@
     "@types/webfontloader": "1.6.32",
     "axios": "0.20.0",
     "classnames": "2.2.6",
+    "postcss": "^8.3.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-hook-form": "6.8.6",
@@ -22,9 +23,6 @@
     "typescript": "3.7.5",
     "webfontloader": "1.6.28"
   },
-  "scripts": {
-    "start": "index.tsx"
-},
   "scripts": {
     "start": "npm run watch:css && react-scripts start",
     "build": "npm run build:css && react-scripts build",
@@ -47,8 +45,8 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "9.8.6",
+    "autoprefixer": "^10.3.4",
     "postcss-cli": "8.0.0",
-    "tailwindcss": "1.8.10"
+    "tailwindcss": "^2.2.15"
   }
 }

@@ -240,6 +240,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Raleway',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
@@ -266,6 +267,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      display: ['Montserrat']
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
