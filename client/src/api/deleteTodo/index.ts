@@ -7,6 +7,6 @@ export const deleteTodo = async (id: string): Promise<void> => {
       url: `http://localhost:8080/api/remove-todo/${id}`
     })
   } catch (error) {
-    throw new Error(error)
+    throw new Error('error')
   }
 }
